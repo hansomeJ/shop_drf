@@ -68,7 +68,7 @@ class DeliveryAddress(models.Model):
     updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.deliver_address
+        return self.delivery_address
 
 @python_2_unicode_compatible
 class UserProfile(models.Model):
