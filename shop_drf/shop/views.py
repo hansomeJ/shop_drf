@@ -1,9 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
-from shop.models import DeliveryAddress, Product, Order, UserProfile, ManuFacturer, Category
+from shop.models import DeliveryAddress, Product, Order, UserProfile, ManuFacturer, Category, Notice
 from shop.serializers import ProductListSerlizer, ProductRetrieveSerializer, UserInfoSerializer, UserProfileSerializer, \
-    UserSerializer, DeliveryAddressSerializer, OrderListSerializer, OrderCreateSerializer, OrderSerializer
+    UserSerializer, DeliveryAddressSerializer, OrderListSerializer, OrderCreateSerializer, OrderSerializer, \
+    NoticeListSerializer, NoticeSerializer
 from rest_framework import generics
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
@@ -168,7 +169,12 @@ class OrderCreateView(generics.CreateAPIView):
     def perform_create(self, serializer):
         user = self.request.user
         product = serializer.validated_data.get('product')
+        quantity = serializer.validated_data.get('quantity')
+
+        print(dir(product))
         serializer.save(user=user, price=product.price, address=self.request.user.profile_of.delivery_address)
+        product.sold += quantity
+        product.save()
         # logging.debug('this is debug')
         # logging.info('this is critical %s','added')
         logging.info('user %d cart changed, product %d related. Time is %s.', user.id, product.id,
@@ -186,3 +192,13 @@ class OrderRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     def perform_update(self, serializer):
         user = self.request.user
         s = serializer.save(user=user, status='1')
+
+
+class NoticeListView(generics.ListAPIView):
+    serializer_class = NoticeListSerializer
+    queryset = Notice.objects.all()
+
+
+class NoticeRetrieveView(generics.RetrieveAPIView):
+    serializer_class = NoticeSerializer
+    queryset = Notice.objects.all()

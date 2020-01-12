@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from shop.models import DeliveryAddress, Product, Order, UserProfile, ManuFacturer, Category
+from shop.models import DeliveryAddress, Product, Order, UserProfile, ManuFacturer, Category, Notice
 from django.contrib.auth.models import User
 
 
@@ -87,3 +87,19 @@ class OrderCreateSerializer(serializers.ModelSerializer):
         model = Order
         fields = ['id', 'user', 'product', 'price', 'quantity', 'created', 'updated', 'remark', 'address', 'status']
         read_only_fields = ['user', 'price', 'address', 'status']
+
+
+class NoticeListSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
+    class Meta:
+        model = Notice
+        fields = ['id', 'title', 'user', ]
+        read_only_fields = ['id', 'title', 'user', ]
+
+
+class NoticeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notice
+        fields = ['id', 'title', 'user', 'created', 'updated']
+        read_only_fields = ['id', 'title', 'user', 'created', 'updated']

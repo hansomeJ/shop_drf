@@ -4,7 +4,7 @@ from rest_framework import routers
 from rest_framework.routers import format_suffix_patterns
 
 from shop.views import ProductList, ProductListByCategoryView, ProductListByCategoryManufacturerView, ProductRetrieve, \
-    UserInfoView,CartListView,OrderListView
+    UserInfoView, CartListView, OrderListView
 from shop import views
 
 urlpatterns = [
@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^order_list/', views.OrderListView.as_view(), name='order_list'),
     url(r'^order_create/', views.OrderCreateView.as_view(), name='order_create'),
     url(r'^order_rud/(?P<pk>[0-9]+)/', views.OrderRetrieveUpdateDestroyView.as_view(), name='order_rud'),
+    url(r'^notice/(?P<pk>[0-9]+)/', views.NoticeRetrieveView.as_view(), name='notice'),
+    url(r'^notice/', views.NoticeListView.as_view(), name='notice'),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)

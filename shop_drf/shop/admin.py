@@ -1,8 +1,19 @@
 from django.contrib import admin
 
 # Register your models here.
-from shop.models import Product, Category, ManuFacturer, UserProfile, DeliveryAddress, Order
+from shop.models import Product, Category, ManuFacturer, UserProfile, DeliveryAddress, Order, Notice
 from django.contrib.auth.models import User
+
+
+class MyAdminSite(admin.AdminSite):
+    site_header = '篮球俱乐部物资管理系统'  # 此处设置页面显示标题
+    site_title = '篮球俱乐部'  # 此处设置页面头部标题
+
+
+admin.site.site_header = '篮球俱乐部物资管理系统'
+admin.site.site_title = '篮球俱乐部'
+# admin.site.index_title = '后台管理'
+admin_site = MyAdminSite(name='management')
 
 
 class UserProfileAdmin(admin.ModelAdmin):
@@ -10,6 +21,13 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(UserProfile, UserProfileAdmin)
+
+
+class NoticeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'content', ]
+
+
+admin.site.register(Notice, NoticeAdmin)
 
 
 class CategoryAdmin(admin.ModelAdmin):

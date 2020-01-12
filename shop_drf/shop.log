@@ -1,0 +1,631 @@
+ERROR:django.request:Internal Server Error: /computer/order_create/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: shop_order.address_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 192, in post
+    return self.create(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 171, in perform_create
+    serializer.save(user=user, price=product.price, address=self.request.user.profile_of.delivery_address)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: shop_order.address_id
+INFO:root:user 1 cart changed, product 3 related. Time is 2020-01-12 15:50:03.058038.
+WARNING:django.request:Not Found: /computer/order_rud/3/
+INFO:root:user 1 cart changed, product 4 related. Time is 2020-01-12 15:57:08.128348.
+WARNING:django.request:Not Found: /computer/order_rud/4/
+ERROR:django.request:Internal Server Error: /computer/order_rud/1/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: shop_order.price
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 70, in update
+    self.perform_update(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 187, in perform_update
+    s = serializer.save(user=user, status='1')
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: shop_order.price
+ERROR:django.request:Internal Server Error: /computer/order_rud/1/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: shop_order.price
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 70, in update
+    self.perform_update(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 187, in perform_update
+    s = serializer.save(user=user, status='1')
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: shop_order.price
+ERROR:django.request:Internal Server Error: /computer/order_rud/1/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: shop_order.price
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 70, in update
+    self.perform_update(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 187, in perform_update
+    s = serializer.save(user=user, status='1')
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: shop_order.price
+ERROR:django.request:Internal Server Error: /computer/product_list/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+AttributeError: 'CSRFCheck' object has no attribute 'process_request'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 400, in initial
+    self.perform_authentication(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 326, in perform_authentication
+    request.user
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "d:\python3.7.2\Lib\contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 81, in wrap_attributeerrors
+    six.reraise(type(exc), exc, info[2])
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+rest_framework.request.WrappedAttributeError: 'CSRFCheck' object has no attribute 'process_request'
+WARNING:django.request:Not Found: /computer
+ERROR:django.request:Internal Server Error: /computer/product_list/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+AttributeError: 'CSRFCheck' object has no attribute 'process_request'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 400, in initial
+    self.perform_authentication(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 326, in perform_authentication
+    request.user
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "d:\python3.7.2\Lib\contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 81, in wrap_attributeerrors
+    six.reraise(type(exc), exc, info[2])
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+rest_framework.request.WrappedAttributeError: 'CSRFCheck' object has no attribute 'process_request'
+INFO:root:user 1 cart changed, product 3 related. Time is 2020-01-12 21:35:09.134045.
+INFO:root:user 1 cart changed, product 6 related. Time is 2020-01-12 21:42:46.188086.
+INFO:root:user 1 cart changed, product 4 related. Time is 2020-01-12 21:45:55.829576.
+ERROR:django.request:Internal Server Error: /computer/order_create/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: shop_order.address_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 192, in post
+    return self.create(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 171, in perform_create
+    serializer.save(user=user, price=product.price, address=self.request.user.profile_of.delivery_address)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "E:\WEBENV\test\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "E:\WEBENV\test\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: shop_order.address_id
+INFO:root:user 2 cart changed, product 4 related. Time is 2020-01-12 21:55:21.127381.
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /computer/order_create/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 192, in post
+    return self.create(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 172, in perform_create
+    product.sold = +product.quantity
+AttributeError: 'Product' object has no attribute 'quantity'
+ERROR:django.request:Internal Server Error: /computer/order_create/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\generics.py", line 192, in post
+    return self.create(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "E:\webApp\shop\shop_drf\shop_drf\shop\views.py", line 173, in perform_create
+    product.sold += product.quantity
+AttributeError: 'Product' object has no attribute 'quantity'
+INFO:root:user 2 cart changed, product 3 related. Time is 2020-01-12 22:18:09.593973.
+ERROR:django.request:Internal Server Error: /computer/notice/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+AttributeError: 'CSRFCheck' object has no attribute 'process_request'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 400, in initial
+    self.perform_authentication(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 326, in perform_authentication
+    request.user
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "d:\python3.7.2\Lib\contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 81, in wrap_attributeerrors
+    six.reraise(type(exc), exc, info[2])
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+rest_framework.request.WrappedAttributeError: 'CSRFCheck' object has no attribute 'process_request'
+ERROR:django.request:Internal Server Error: /computer/notice/
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+AttributeError: 'CSRFCheck' object has no attribute 'process_request'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\WEBENV\test\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 400, in initial
+    self.perform_authentication(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\views.py", line 326, in perform_authentication
+    request.user
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "d:\python3.7.2\Lib\contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 81, in wrap_attributeerrors
+    six.reraise(type(exc), exc, info[2])
+  File "E:\WEBENV\test\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 77, in wrap_attributeerrors
+    yield
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 223, in user
+    self._authenticate()
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\request.py", line 376, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 129, in authenticate
+    self.enforce_csrf(request)
+  File "E:\WEBENV\test\lib\site-packages\rest_framework\authentication.py", line 140, in enforce_csrf
+    check.process_request(request)
+rest_framework.request.WrappedAttributeError: 'CSRFCheck' object has no attribute 'process_request'
