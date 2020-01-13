@@ -99,7 +99,9 @@ class NoticeListSerializer(serializers.ModelSerializer):
 
 
 class NoticeSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
     class Meta:
         model = Notice
-        fields = ['id', 'title', 'user', 'created', 'updated']
+        fields = ['id', 'title', 'content', 'user', 'created', 'updated']
         read_only_fields = ['id', 'title', 'user', 'created', 'updated']

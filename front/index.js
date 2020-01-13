@@ -604,67 +604,60 @@ $(document).on("pageshow", "#notice", function () {
                 console.log(i);
 
                 // $("#view").html("");
+                // $("#view").append(
+                //     '<div class="ui-block-a" id="' + res.results[i].id + '">' +
+                //     '</div>' +
+                //     '<div class="ui-block-b" style="padding-top:20px;">' +
+                //     '标题：' + res.results[i].title +"|"+
+                //     '发布者：' + res.results[i].user.username + '<br>' +
+                //     '</div>' +
+                //     '<div class="ui-block-b">' +
+                //     '</div>'
+                // );
                 $("#view").append(
-                    '<div class="ui-block-a" id="' + res.results[i].id + '">' +
-                    '</div>' +
-                    '<div class="ui-block-b" style="padding-top:20px;">' +
-                    '标题：' + res.results[i].title + '<br>' +
-                    '发布者：' + res.results[i].user.username + '<br>' +
-                    '</div>' +
-                    '<div class="ui-block-b">' +
+                    '<div style="padding-top:20px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="' + res.results[i].id + '">' +
+                    '<div style="text-align:left;padding-left:0px;">标题：' + res.results[i].title + '</div>' +
+                    '<div style="text-align:left;padding-left:0px;">发布者：' + res.results[i].user.username + '</div>' +
                     '</div>'
                 );
+                $("#" + res.results[i].id).on("tap", function () {
+                    console.log("hey");
+                    console.log($(this).attr("id"));
+                    window.location.href = "noticeDetails.html?id=" + $(this).attr("id");
+                });
+                $("#b" + res.results[i].id).on("tap", function () {
+                    console.log("hey");
+                    console.log($(this).attr("id").slice(1));
+                    window.location.href = "noticeDetails.html?id=" + $(this).attr("id").slice(1);
+                });
 
             }
-
-            // $(".gotoDetails").click(function () {
-            //
-            //     $.ajax({
-            //         url: "http://127.0.0.1:8001/computer/order_rud/" + $(this).attr("value") + "/",
-            //         type: "DELETE",
-            //         headers: myheader(),
-            //         success: function (res) {
-            //             console.log(res);
-            //             window.location.href = "usercart.html";
-            //
-            //         },
-            //         error: function (jqXHR, textStatus, errorThrown) {
-            //             console.log(jqXHR, textStatus, errorThrown);
-            //         }
-            //     });
-            //
-            // });
-
-            //     $(".gotoDetails2").click(function () {
-            //
-            //         $.ajax({
-            //             url: "http://127.0.0.1:8001/computer/order_rud/" + $(this).attr("value") + "/",
-            //             type: "PATCH",
-            //             headers: myheader(),
-            //             success: function (res) {
-            //                 console.log(res);
-            //                 window.location.href = "order_success.html";
-            //
-            //             },
-            //             error: function (jqXHR, textStatus, errorThrown) {
-            //                 console.log(jqXHR, textStatus, errorThrown);
-            //             }
-            //         });
-            //
-            //     });
-            //
-            // }
-            // ;
-
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
         }
     });
+});
+$(document).on("pageshow", "#noticeDetails", function () {
+    // var url = "noticeDetails.html";
+    // window.location.href = "noticeDetails.html";
+    var url = window.location.href;
+    var id = url.split("?")[1].split("=")[1];
+    // var id = $("#id").attr("id");
+    $.ajax({
+        url: "http://127.0.0.1:8001/computer/notice/" + id + "/",
+        success: function (res) {
+            console.log(res);
 
+            $("#title").html("标题：" + res.title);
+            $("#user").html("发布者：" + res.user.username);
+            $("#content").html("内容：" + res.content);
+
+        }
+    });
 
 });
+
 $(document).on("pageshow", "#usercart", function () {
 
     var address_chosen = 0;
